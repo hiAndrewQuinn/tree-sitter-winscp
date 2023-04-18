@@ -8,23 +8,32 @@
       "required": true,
       "types": [
         {
-          "type": "command_list",
+          "type": "command_name",
           "named": true
         },
         {
-          "type": "command_options",
+          "type": "command_parameter",
+          "named": true
+        },
+        {
+          "type": "command_switch",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "command_list",
+    "type": "command_name",
     "named": true,
     "fields": {}
   },
   {
-    "type": "command_options",
+    "type": "command_parameter",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "command_switch",
     "named": true,
     "fields": {}
   },
@@ -54,6 +63,10 @@
   },
   {
     "type": "#",
+    "named": false
+  },
+  {
+    "type": "-",
     "named": false
   },
   {

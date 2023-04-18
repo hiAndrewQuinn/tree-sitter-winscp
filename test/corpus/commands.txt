@@ -2,13 +2,29 @@
 commands
 ============================================
 
-exit
-open somewthing
+# a comment
+pwd
+call whatever
+get -nothing from nowhere
+
+    echo strange spacing
 
 --------------------------------------------
 
 (source_file
-  (command (command_list) (command_options))
+  (comment)
   (command
-    (command_list)
-    (command_options)))
+    (command_name))
+  (command
+    (command_name)
+    (command_parameter))
+  (command
+    (command_name)
+    (command_switch)
+    (command_parameter)
+    (command_parameter))
+  (command
+    (command_name)
+    (command_parameter)
+    (command_parameter)))
+

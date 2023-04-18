@@ -39,15 +39,42 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "command_list"
+          "name": "command_name"
         },
         {
-          "type": "SYMBOL",
-          "name": "command_options"
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "command_switch"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "command_parameter"
+          }
         }
       ]
     },
-    "command_list": {
+    "command_switch": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "-"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-z]+"
+        }
+      ]
+    },
+    "command_parameter": {
+      "type": "PATTERN",
+      "value": "[a-z]+"
+    },
+    "command_name": {
       "type": "CHOICE",
       "members": [
         {
@@ -159,10 +186,6 @@
           "value": "synchronize"
         }
       ]
-    },
-    "command_options": {
-      "type": "PATTERN",
-      "value": ".*"
     }
   },
   "extras": [
