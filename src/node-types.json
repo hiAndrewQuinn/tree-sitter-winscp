@@ -1,0 +1,167 @@
+[
+  {
+    "type": "command",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "command_list",
+          "named": true
+        },
+        {
+          "type": "command_options",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "command_list",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "command_options",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "command",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "call",
+    "named": false
+  },
+  {
+    "type": "cd",
+    "named": false
+  },
+  {
+    "type": "checksum",
+    "named": false
+  },
+  {
+    "type": "chmod",
+    "named": false
+  },
+  {
+    "type": "close",
+    "named": false
+  },
+  {
+    "type": "cp",
+    "named": false
+  },
+  {
+    "type": "echo",
+    "named": false
+  },
+  {
+    "type": "exit",
+    "named": false
+  },
+  {
+    "type": "get",
+    "named": false
+  },
+  {
+    "type": "help",
+    "named": false
+  },
+  {
+    "type": "keepuptodate",
+    "named": false
+  },
+  {
+    "type": "lcd",
+    "named": false
+  },
+  {
+    "type": "lls",
+    "named": false
+  },
+  {
+    "type": "ln",
+    "named": false
+  },
+  {
+    "type": "lpwd",
+    "named": false
+  },
+  {
+    "type": "ls",
+    "named": false
+  },
+  {
+    "type": "mkdir",
+    "named": false
+  },
+  {
+    "type": "mv",
+    "named": false
+  },
+  {
+    "type": "open",
+    "named": false
+  },
+  {
+    "type": "option",
+    "named": false
+  },
+  {
+    "type": "put",
+    "named": false
+  },
+  {
+    "type": "pwd",
+    "named": false
+  },
+  {
+    "type": "rm",
+    "named": false
+  },
+  {
+    "type": "rmdir",
+    "named": false
+  },
+  {
+    "type": "session",
+    "named": false
+  },
+  {
+    "type": "stat",
+    "named": false
+  },
+  {
+    "type": "synchronize",
+    "named": false
+  }
+]

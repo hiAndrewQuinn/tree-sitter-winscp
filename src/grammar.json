@@ -1,0 +1,180 @@
+{
+  "name": "WinSCP",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_line"
+      }
+    },
+    "_line": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "comment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command"
+        }
+      ]
+    },
+    "comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      ]
+    },
+    "command": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "command_list"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "command_options"
+        }
+      ]
+    },
+    "command_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "call"
+        },
+        {
+          "type": "STRING",
+          "value": "cd"
+        },
+        {
+          "type": "STRING",
+          "value": "checksum"
+        },
+        {
+          "type": "STRING",
+          "value": "chmod"
+        },
+        {
+          "type": "STRING",
+          "value": "close"
+        },
+        {
+          "type": "STRING",
+          "value": "cp"
+        },
+        {
+          "type": "STRING",
+          "value": "echo"
+        },
+        {
+          "type": "STRING",
+          "value": "exit"
+        },
+        {
+          "type": "STRING",
+          "value": "get"
+        },
+        {
+          "type": "STRING",
+          "value": "help"
+        },
+        {
+          "type": "STRING",
+          "value": "keepuptodate"
+        },
+        {
+          "type": "STRING",
+          "value": "lcd"
+        },
+        {
+          "type": "STRING",
+          "value": "lls"
+        },
+        {
+          "type": "STRING",
+          "value": "ln"
+        },
+        {
+          "type": "STRING",
+          "value": "lpwd"
+        },
+        {
+          "type": "STRING",
+          "value": "ls"
+        },
+        {
+          "type": "STRING",
+          "value": "mkdir"
+        },
+        {
+          "type": "STRING",
+          "value": "mv"
+        },
+        {
+          "type": "STRING",
+          "value": "open"
+        },
+        {
+          "type": "STRING",
+          "value": "option"
+        },
+        {
+          "type": "STRING",
+          "value": "put"
+        },
+        {
+          "type": "STRING",
+          "value": "pwd"
+        },
+        {
+          "type": "STRING",
+          "value": "rm"
+        },
+        {
+          "type": "STRING",
+          "value": "rmdir"
+        },
+        {
+          "type": "STRING",
+          "value": "session"
+        },
+        {
+          "type": "STRING",
+          "value": "stat"
+        },
+        {
+          "type": "STRING",
+          "value": "synchronize"
+        }
+      ]
+    },
+    "command_options": {
+      "type": "PATTERN",
+      "value": ".*"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+
