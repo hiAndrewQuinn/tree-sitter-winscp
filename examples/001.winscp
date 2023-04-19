@@ -1,0 +1,2 @@
+# All WinSCP commands have the following pattern:
+# command -switch -switch2 parameter1 parameter2 ... parametern

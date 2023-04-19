@@ -1,0 +1,16 @@
+============================================
+a first example
+============================================
+
+put 'smoke on the water'
+get "and fire ""in"" the sky"
+
+--------------------------------------------
+
+(source_file
+ (command
+  (command_name)
+  (command_parameter))
+ (command
+   (command_name)
+   (command_parameter)))

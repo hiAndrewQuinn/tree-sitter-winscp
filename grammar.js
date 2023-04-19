@@ -21,11 +21,18 @@ module.exports = grammar({
       repeat($.command_switch),
       repeat($.command_parameter)
     ),
+
     command_switch: $ => seq(
       '-', // Switch
-      /[a-z]+/
+      /[a-z]+/,
+      optional(seq('=', $.command_parameter)),
     ),
-    command_parameter: $ => /[a-z]+/,
+
+    command_parameter: $ => choice(
+      seq("'", /([^']|(\'\'))*/, "'"),
+      seq('"', /([^"]|(""))*/, '"'),
+      /[a-zA-Z0-9:/\\.@]+/,
+    ),
 
     command_name: $ => choice(
       'call', // Executes arbitrary remote shell command

@@ -35,7 +35,17 @@
   {
     "type": "command_switch",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "command_parameter",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "comment",
@@ -62,11 +72,23 @@
     }
   },
   {
+    "type": "\"",
+    "named": false
+  },
+  {
     "type": "#",
     "named": false
   },
   {
+    "type": "'",
+    "named": false
+  },
+  {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "=",
     "named": false
   },
   {

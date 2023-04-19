@@ -1,4 +1,12 @@
 {
+  "tree-sitter": [
+    {
+      "scope": "source.winscp",
+      "file-types": [
+        "winscp"
+      ]
+    }
+  ],
   "name": "tree-sitter-winscp",
   "version": "0.0.0",
   "description": "A Tree-sitter parser for the [WinSCP scripting and console interface](https://winscp.net/eng/docs/scripting).",
