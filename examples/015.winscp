@@ -1,0 +1,12 @@
+winscp.com /script=example.txt /parameter // %*
+if %ERRORLEVEL% neq 0 goto error
+ 
+echo Retrieving files succeeded
+gzip -d archive.tar.gz
+tar -xf archive.tar
+del archive.tar
+exit /b 0
+ 
+:error
+echo Retrieving files failed
+exit /b 1

@@ -1,0 +1,7 @@
+set TIMESTAMP_FORMAT=yyyy-mm-dd
+ 
+for /F "tokens=* USEBACKQ" %%F in (
+    `winscp.com /command "echo %%TIMESTAMP#%TIMESTAMP_FORMAT%%%" "exit"`
+) do set TIMESTAMP=%%F
+ 
+echo %TIMESTAMP%

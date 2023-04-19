@@ -1,0 +1,22 @@
+@echo off
+set TRIES=3
+set INTERVAL=10
+ 
+:retry
+ 
+winscp.com /script=script.txt
+ 
+if %ERRORLEVEL% neq 0 (
+   set /A TRIES=%TRIES%-1
+   if %TRIES% gtr 1 (
+       echo Failed, retrying in %INTERVAL% seconds...
+       timeout /t %INTERVAL%
+       goto retry
+   ) else (
+       echo Failed, aborting
+       exit /b 1
+   )
+)
+ 
+echo Success
+exit /b 0

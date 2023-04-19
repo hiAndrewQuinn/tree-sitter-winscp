@@ -1,0 +1,6 @@
+set REMOTE_PATH=/home/user/*.txt
+winscp.com /command ^
+    "open mysession" ^
+    "option failonnomatch on" ^
+    "ls %REMOTE_PATH%" ^
+    "exit"

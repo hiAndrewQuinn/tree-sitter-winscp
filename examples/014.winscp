@@ -1,0 +1,6 @@
+open mysession
+cd %1%
+call tar -czf /tmp/archive.tar.gz %2%
+lpwd
+get -delete /tmp/archive.tar.gz
+exit

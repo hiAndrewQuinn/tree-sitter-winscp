@@ -1,0 +1,3 @@
+open sftp://user:password@example.com/
+put examplefile.txt /home/user/
+exit

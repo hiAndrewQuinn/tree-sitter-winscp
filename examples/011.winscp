@@ -1,0 +1,7 @@
+@echo off
+ 
+winscp.com /command ^
+    "open mysession" ^
+    "stat /remote/path/done" ^
+    "get -delete /remote/path/* C:\local\path\*" ^
+    "exit"

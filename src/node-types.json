@@ -18,6 +18,10 @@
         {
           "type": "command_switch",
           "named": true
+        },
+        {
+          "type": "continue_line",
+          "named": true
         }
       ]
     }
@@ -30,7 +34,17 @@
   {
     "type": "command_parameter",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "env_variable",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "command_switch",
@@ -49,6 +63,11 @@
   },
   {
     "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "env_variable",
     "named": true,
     "fields": {}
   },
@@ -80,11 +99,19 @@
     "named": false
   },
   {
+    "type": "%",
+    "named": false
+  },
+  {
     "type": "'",
     "named": false
   },
   {
     "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
     "named": false
   },
   {
@@ -110,6 +137,10 @@
   {
     "type": "close",
     "named": false
+  },
+  {
+    "type": "continue_line",
+    "named": true
   },
   {
     "type": "cp",

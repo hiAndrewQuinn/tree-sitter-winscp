@@ -1,0 +1,3 @@
+open mysession
+get "/home/user/download.txt" "C:\downloaded\download.txt.%TIMESTAMP#yyyymmddhhnnss%"
+exit

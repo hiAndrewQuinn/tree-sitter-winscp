@@ -34,6 +34,27 @@
         }
       ]
     },
+    "continue_line": {
+      "type": "STRING",
+      "value": "^"
+    },
+    "env_variable": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "%"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-zA-Z0-9_]+"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        }
+      ]
+    },
     "command": {
       "type": "SEQ",
       "members": [
@@ -54,6 +75,18 @@
             "type": "SYMBOL",
             "name": "command_parameter"
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "continue_line"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -61,8 +94,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "-"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "-"
+            },
+            {
+              "type": "STRING",
+              "value": "/"
+            }
+          ]
         },
         {
           "type": "PATTERN",
@@ -94,6 +136,10 @@
     "command_parameter": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "env_variable"
+        },
         {
           "type": "SEQ",
           "members": [

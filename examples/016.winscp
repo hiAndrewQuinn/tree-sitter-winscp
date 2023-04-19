@@ -1,0 +1,7 @@
+@echo off
+set XMLLOG=script.xml
+winscp.com /log=script.log /xmllog=%XMLLOG% /command ^
+    "open mysession" ^
+    "ls /path" ^
+    "exit"
+if %ERRORLEVEL% == 0 msxsl.exe %XMLLOG% listing.xsl > listing.csv

@@ -1,0 +1,38 @@
+@echo off
+ 
+set WINSCP_LOG=example.log
+ 
+rem Run WinSCP script
+winscp.com /ini=nul /log=%WINSCP_LOG% /script=example.txt
+ 
+rem Check WinSCP result and prepare the email message
+if %ERRORLEVEL% equ 0 (
+  set WINSCP_SUBJECT=Success
+  set WINSCP_MESSAGE=The files were uploaded successfully.
+  set WINSCP_CODE=0
+) else (
+  set WINSCP_SUBJECT=Error
+  set WINSCP_MESSAGE=Error uploading files, see attached log.
+  set WINSCP_CODE=1
+)
+ 
+echo %WINSCP_SUBJECT%
+echo %WINSCP_MESSAGE%
+ 
+rem Send the email message
+ 
+set SMTP_FROM=script@example.com
+set SMTP_TO=me@example.com
+set SMTP_SERVER=mail.example.com
+set SMTP_USERNAME=me@example.com
+set SMTP_PASSWORD=password
+ 
+if exist "%WINSCP_LOG%" set ATTACHMENT=-Attachments '%WINSCP_LOG%'
+ 
+powershell -ExecutionPolicy Bypass -Command Send-MailMessage ^
+    -From %SMTP_FROM% -To %SMTP_TO% -Subject '%WINSCP_SUBJECT%' -Body '%WINSCP_MESSAGE%' ^
+    %ATTACHMENT% -SmtpServer %SMTP_SERVER% -UseSsl ^
+    -Credential (New-Object System.Management.Automation.PSCredential ^
+        ('%SMTP_USERNAME%', (ConvertTo-SecureString '%SMTP_PASSWORD%' -AsPlainText -Force)))
+ 
+exit /b %WINSCP_CODE%

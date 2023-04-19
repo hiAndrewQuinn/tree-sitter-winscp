@@ -13,22 +13,28 @@ module.exports = grammar({
       /.*/
     ),
 
+    continue_line: $ => '^',
+
+    env_variable: $ => seq("%", /[a-zA-Z0-9_]+/, "%"),
+
     // From the docs:
     //  command -switch -switch2 parameter1 parameter2 ... parametern
     //  All WinSCP commands have syntax: 
     command: $ => seq(
       $.command_name,
       repeat($.command_switch),
-      repeat($.command_parameter)
+      repeat($.command_parameter),
+      optional($.continue_line)
     ),
 
     command_switch: $ => seq(
-      '-', // Switch
+      choice('-', '/'),// Switch
       /[a-z]+/,
       optional(seq('=', $.command_parameter)),
     ),
 
     command_parameter: $ => choice(
+      $.env_variable,
       seq("'", /([^']|(\'\'))*/, "'"),
       seq('"', /([^"]|(""))*/, '"'),
       /[a-zA-Z0-9:/\\.@]+/,
